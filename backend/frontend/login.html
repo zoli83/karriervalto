@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <!-- A karakterkódolás beállítása -->
+  <meta charset="UTF-8">
+  <!-- Az oldal címe a böngésző ablakában -->
+  <title>Bejelentkezés</title>
+  <!-- Egyéni stíluslap hivatkozása -->
+  <link rel="stylesheet" href="stylelogin.css">
+  <!-- Gomb stíluslap hivatkozása -->
+  <link rel="stylesheet" href="button.css">
+</head>
+<body>
+  <!-- Bejelentkezési űrlap konténer -->
+  <div id="login-form-wrap">
+    <!-- Bejelentkezési cím -->
+    <h2>Bejelentkezés</h2>
+    <!-- Bejelentkezési űrlap -->
+    <form id="login-form" onsubmit="redirectToLogin()">
+    
+      <p>
+        <!-- Email cím beviteli mező -->
+        <input type="email" id="email" name="email" placeholder="Email cím" required>
+        <!-- Email cím validációs ikonok -->
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <!-- Jelszó beviteli mező -->
+        <input type="password" id="password" name="password" placeholder="Jelszó" required>
+        <!-- Jelszó validációs ikonok -->
+        <i class="validation"><span></span><span></span></i>
+      </p>
+    
+      <p>
+        <!-- Bejelentkezés gomb -->
+        <input type="submit" id="login" value="Bejelentkezés">
+      </p>
+    </form>
+    <!-- Regisztrációra mutató link -->
+    <div id="create-account-wrap">
+      <p>Nem tudok bejelentkezni <a href="registration.html">Regisztráció</a></p>
+    </div>
+
+    <!-- Visszanavigálás gomb a kezdőlapra -->
+    <a href="index.html" id="back-to-home">Vissza a kezdőlapra</a>
+  </div>
+
+  <!-- JavaScript kód a bejelentkezési oldalra történő átirányításhoz -->
+  <script>
+    function redirectToLogin() {
+      // Átirányítás a login.html oldalra
+      window.location.href = "login.html";
+      return false;
+    }
+  </script>
+</body>
+</html>

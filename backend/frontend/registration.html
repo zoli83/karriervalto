@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <!-- A karakterkódolás beállítása -->
+  <meta charset="UTF-8">
+  <!-- Az oldal címe a böngésző ablakában -->
+  <title>Regisztráció</title>
+  <!-- Egyéni stíluslap hivatkozása -->
+  <link rel="stylesheet" href="styleregistration.css">
+</head>
+<body>
+  <!-- Regisztrációs űrlap konténer -->
+  <div id="registration-form-wrap">
+    <!-- Regisztrációs cím -->
+    <h2>Regisztráció</h2>
+    <!-- Regisztrációs űrlap -->
+    <form id="registration-form" onsubmit="redirectToLogin()">
+    
+      <p>
+        <!-- Felhasználónév beviteli mező -->
+        <input type="text" id="username" name="username" placeholder="Felhasználónév" required>
+        <!-- Felhasználónév validációs ikonok -->
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <!-- Email cím beviteli mező -->
+        <input type="email" id="email" name="email" placeholder="Email cím" required>
+        <!-- Email cím validációs ikonok -->
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <!-- Jelszó beviteli mező -->
+        <input type="password" id="password" name="password" placeholder="Jelszó" required>
+        <!-- Jelszó validációs ikonok -->
+        <i class="validation"><span></span><span></span></i>
+      </p>
+    
+      <p>
+        <!-- Regisztráció gomb -->
+        <input type="submit" id="register" value="Regisztráció">
+      </p>
+    </form>
+    <!-- Bejelentkezésre mutató link -->
+    <div id="login-link-wrap">
+      <p>Már van fiókod? <a href="login.html">Bejelentkezés</a></p>
+    </div>
+  </div>
+
+  <!-- JavaScript kód a bejelentkezési oldalra történő átirányításhoz -->
+  <script>
+    function redirectToLogin() {
+      // Átirányítás a bejelentkezési oldalra
+      window.location.href = "login.html";
+      return false;
+    }
+  </script>
+</body>
+</html>
