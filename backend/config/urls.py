@@ -2,7 +2,7 @@
 URL configuration for config project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
+    https://docs.djangoproject.com/en/4.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -20,5 +20,11 @@ from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.main_page),
+
+    path('',views.main_page),
+    path('registration/', views.reg_page),
+    path('login/', views.login_page, name="login"),
+    path('jobs/', views.list_positions, name="jobs"),
+    path('error_page/', views.error_page),
+    path('apply/<int:positionId>', views.applyPosition)
 ]

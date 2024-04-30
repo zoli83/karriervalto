@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <!--Külső stílusok-->
-    <link rel="stylesheet" href="jobstyle.css">
+    <link rel="stylesheet" href="/static/jobstyle.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;...&display=swap" />
     <style>
       @keyframes fade-in-left {
@@ -24,106 +24,50 @@
   </head>
   <body>
     <!--Belső stílusok-->
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/static/style.css" />
     <div>
-      <link href="./jobs.css" rel="stylesheet" />
+      <link href="/static/jobs.css" rel="stylesheet" />
+
+
 
       <div class="jobs-container">
         <header data-role="Header" class="jobs-header">
           <!--Vissza a kezdőlapra gomb-->
-          <a href="index.html" class="back-to-home-button">Kezdőlap</a>
+          <a href="/" class="back-to-home-button">Kezdőlap</a>
 
           </a>
           <!--Bejelentkezés gomb-->
           <div class="jobs-btn-group">
-            <a href="login.html" class="jobs-login button">Bejelentkezés</a>
+            <a href="/login/" class="jobs-login button">Bejelentkezés</a>
           </div>         
-        </header>
+        </header>        
         <!--Fő tartalom állás kártyák-->
-        <div class="jobs-features">
-          <h1 class="jobs-text">Legfrissebb Állások</h1>
-          <div class="jobs-jobsablak">
-            <div class="feature-card1-feature-card">
-              <h2 class="feature-card1-text"><span>Projektmenedzser</span></h2>
-              <a href="404.html">
-                <img
-                alt="image"
-                src="job_942800.png"
-                class="feature-card1-image"
-                />
-              </a>
-            </div>
-            <div class="feature-card1-feature-card">
-              <h2 class="feature-card1-text"><span>Raktáros</span></h2>
-              <a href="404.html">
-                <img
-                alt="image"
-                src="job_942800.png"
-                class="feature-card1-image"
-                />
-              </a>
-            </div>
-            <div class="feature-card1-feature-card">
-              <h2 class="feature-card1-text"><span>Adatelemző</span></h2>
-              <a href="404.html">
-                <img
-                alt="image"
-                src="job_942800.png"
-                class="feature-card1-image"
-                />
-              </a>
-            </div>
-            <div class="feature-card1-feature-card">
-              <h2 class="feature-card1-text"><span>Villanyszerelő</span></h2>
-              <a href="404.html">
-                <img
-                alt="image"
-                src="job_942800.png"
-                class="feature-card1-image"
-                />
-              </a>
-            </div>
-            <div class="feature-card1-feature-card">
-              <h2 class="feature-card1-text"><span>IT sales manager</span></h2>
-              <a href="404.html">
-                <img
-                alt="image"
-                src="job_942800.png"
-                class="feature-card1-image"
-                />
-              </a>
-            </div>
-            <div class="feature-card1-feature-card">
-              <h2 class="feature-card1-text"><span>Marketinges</span></h2>
-              <a href="404.html">
-                <img
-                alt="image"
-                src="job_942800.png"
-                class="feature-card1-image"
-                />
-              </a>
-            </div>
-            <div class="feature-card1-feature-card">
-              <h2 class="feature-card1-text"><span>Könyvtáros</span></h2>
-              <a href="404.html">
-                <img
-                alt="image"
-                src="job_942800.png"
-                class="feature-card1-image"
-                />
-              </a>
-            </div>
-            <div class="feature-card1-feature-card">
-              <h2 class="feature-card1-text"><span>Rendszer felügyelő</span></h2>
-              <a href="404.html">
-                <img
-                alt="image"
-                src="job_942800.png"
-                class="feature-card1-image"
-                />
-              </a>
-            </div>
-          </div>
+        <!-- A állásra jelentkezések listája a felhasználónál -->
+        <!-- TODO -->
+        <div class="applied-jobs">
+          {% for job in applied %}
+        <span>{{ job.Pos_Name }}</span>
+      {% endfor %}
         </div>
+        <div class="jobs-features">
+          <h1 class="jobs-text">Állás jelentkezések</h1>
+
+          <div class="jobs-jobsablak">
+            {% for item in position_list %}
+            <div class="feature-card1-feature-card">
+              <h4>{{ item.CompanyName }}</h4>
+              <h2 class="feature-card1-text">{{ item.PosName }}</h2>
+              <h3>{{ item.City }}</h3>
+
+              {% if user.is_authenticated %}
+              <a class="apply-btn" href="/apply/{{item.id}}">Jelentkezek</a>
+              {% endif %}
+
+            </div>
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
   </body>
 </html>

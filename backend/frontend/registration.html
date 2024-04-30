@@ -6,7 +6,7 @@
   <!-- Az oldal címe a böngésző ablakában -->
   <title>Regisztráció</title>
   <!-- Egyéni stíluslap hivatkozása -->
-  <link rel="stylesheet" href="styleregistration.css">
+  <link rel="stylesheet" href="/static/styleregistration.css">
 </head>
 <body>
   <!-- Regisztrációs űrlap konténer -->
@@ -42,7 +42,7 @@
     </form>
     <!-- Bejelentkezésre mutató link -->
     <div id="login-link-wrap">
-      <p>Már van fiókod? <a href="login.html">Bejelentkezés</a></p>
+      <p>Már van fiókod? <a href="/login/">Bejelentkezés</a></p>
     </div>
   </div>
 
@@ -50,7 +50,7 @@
   <script>
     function redirectToLogin() {
       // Átirányítás a bejelentkezési oldalra
-      window.location.href = "login.html";
+      window.location.href = "/login/";
       return false;
     }
   </script>

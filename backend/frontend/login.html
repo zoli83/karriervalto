@@ -6,9 +6,9 @@
   <!-- Az oldal címe a böngésző ablakában -->
   <title>Bejelentkezés</title>
   <!-- Egyéni stíluslap hivatkozása -->
-  <link rel="stylesheet" href="stylelogin.css">
+  <link rel="stylesheet" href="/static/stylelogin.css">
   <!-- Gomb stíluslap hivatkozása -->
-  <link rel="stylesheet" href="button.css">
+  <link rel="stylesheet" href="/static/button.css">
 </head>
 <body>
   <!-- Bejelentkezési űrlap konténer -->
@@ -16,42 +16,34 @@
     <!-- Bejelentkezési cím -->
     <h2>Bejelentkezés</h2>
     <!-- Bejelentkezési űrlap -->
-    <form id="login-form" onsubmit="redirectToLogin()">
-    
-      <p>
+    <form id="login-form" method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+ 
         <!-- Email cím beviteli mező -->
-        <input type="email" id="email" name="email" placeholder="Email cím" required>
+        <label for="username">Felhasználónév</label>
+        {{form.username}}
         <!-- Email cím validációs ikonok -->
         <i class="validation"><span></span><span></span></i>
-      </p>
-      <p>
+
         <!-- Jelszó beviteli mező -->
-        <input type="password" id="password" name="password" placeholder="Jelszó" required>
+        <label for="password">Jelszó</label>
+
+        {{form.password}}
         <!-- Jelszó validációs ikonok -->
         <i class="validation"><span></span><span></span></i>
-      </p>
-    
-      <p>
+
         <!-- Bejelentkezés gomb -->
         <input type="submit" id="login" value="Bejelentkezés">
-      </p>
+
     </form>
+
     <!-- Regisztrációra mutató link -->
     <div id="create-account-wrap">
-      <p>Nem tudok bejelentkezni <a href="registration.html">Regisztráció</a></p>
+      <p>Nem tudok bejelentkezni <a href="/registration/">Regisztráció</a></p>
     </div>
 
     <!-- Visszanavigálás gomb a kezdőlapra -->
-    <a href="index.html" id="back-to-home">Vissza a kezdőlapra</a>
+    <a href="/" id="back-to-home">Vissza a kezdőlapra</a>
   </div>
-
-  <!-- JavaScript kód a bejelentkezési oldalra történő átirányításhoz -->
-  <script>
-    function redirectToLogin() {
-      // Átirányítás a login.html oldalra
-      window.location.href = "login.html";
-      return false;
-    }
-  </script>
 </body>
 </html>
